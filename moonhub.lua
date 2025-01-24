@@ -9,35 +9,35 @@ local Teams = game:GetService("Teams")
 
 local Window = Rayfield:CreateWindow({
     Name = "Moon Hub",
-    Icon = "moon", -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    Icon = "moon",
     LoadingTitle = "Moon Hub", 
     LoadingSubtitle = "by MrCaniwes, ` Hamzz",
-    Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+    Theme = "Default", 
 
     DisableRayfieldPrompts = false,
-    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+    DisableBuildWarnings = false, 
 
     ConfigurationSaving = {
        Enabled = true,
-       FolderName = nil, -- Create a custom folder for your hub/game
+       FolderName = nil,
        FileName = "Moon Hub"
     },
 
     Discord = {
-       Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
-       Invite = "nerontechgames", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+       Enabled = true, 
+       Invite = "nerontechgames",
+       RememberJoins = true
     },
 
-    KeySystem = false, -- Set this to true to use our key system
+    KeySystem = false,
     KeySettings = {
        Title = "Moon Hub",
        Subtitle = "Key System", 
-       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
-       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+       Note = "No method of obtaining the key is provided", 
+       FileName = "Key", 
+       SaveKey = true, 
+       GrabKeyFromSite = false,
+       Key = {"Hello"}
     }
 })
 
@@ -150,7 +150,6 @@ end
 
 
 
--- Fly Toggle
 local FlyToggle = MainTab:CreateToggle({
     Name = "Fly",
     CurrentValue = false,
@@ -183,7 +182,6 @@ local Slider = MainTab:CreateSlider({
 })
 
 
--- İlk önce toggle'ları tanımlayalım
 local QTeleportToggle, CtrlTeleportToggle
 
 QTeleportToggle = MainTab:CreateToggle({
@@ -253,7 +251,6 @@ game:GetService("UserInputService").JumpRequest:Connect(function()
    end
 end)
 
--- Noclip Function
 RunService.Stepped:Connect(function()
     local player = Players.LocalPlayer
     if player.Character then
@@ -292,7 +289,6 @@ local Slider = MainTab:CreateSlider({
     end,
 })
 
--- ESP Toggle
 local ESPToggle = EspTab:CreateToggle({
     Name = "ESP Master Toggle",
     CurrentValue = false,
@@ -315,7 +311,6 @@ local ESPToggle = EspTab:CreateToggle({
     end,
 })
 
--- Box ESP Toggle
 local BoxESPToggle = EspTab:CreateToggle({
     Name = "Box ESP Toggle",
     CurrentValue = false,
@@ -344,7 +339,6 @@ local BoxESPToggle = EspTab:CreateToggle({
     end,
 })
 
--- Color Picker for Box ESP
 local ColorPicker = EspTab:CreateColorPicker({
     Name = "Box ESP Color",
     Color = Color3.fromRGB(0, 64, 191), -- Default color (0, 0.25, 0.75)
@@ -358,7 +352,6 @@ local ColorPicker = EspTab:CreateColorPicker({
     end
 })
 
--- Healt Bar Toggle
 local HealtBarToggle = EspTab:CreateToggle({
     Name = "Health Bar Toggle",
     CurrentValue = false,
@@ -381,7 +374,6 @@ local HealtBarToggle = EspTab:CreateToggle({
     end,
 })
 
--- Chams Toggle
 local ChamsToggle = EspTab:CreateToggle({
     Name = "Chams Toggle",
     CurrentValue = false,
@@ -410,7 +402,6 @@ local ChamsToggle = EspTab:CreateToggle({
     end,
 })
 
--- Color Picker for Box ESP
 local ColorPicker = EspTab:CreateColorPicker({
     Name = "Chams Fill Color",
     Color = Color3.fromRGB(0, 64, 191), -- Default color (0, 0.25, 0.75)
@@ -438,7 +429,6 @@ local ColorPicker = EspTab:CreateColorPicker({
     end
 })
 
--- Chams Visible Only Toggle
 local ChamsVisibleToggle = EspTab:CreateToggle({
     Name = "Chams Visible Only Toggle",
     CurrentValue = false,
@@ -459,7 +449,6 @@ local ChamsVisibleToggle = EspTab:CreateToggle({
 })
 
 
--- Aimbot Toggle
 local AimbotToggle = AimbotTab:CreateToggle({
     Name = "Aimbot",
     CurrentValue = false,
@@ -475,7 +464,6 @@ local AimbotToggle = AimbotTab:CreateToggle({
     end,
 })
 
--- Team Check Toggle for Aimbot
 local TeamCheckToggle = AimbotTab:CreateToggle({
     Name = "Team Check",
     CurrentValue = false,
@@ -494,7 +482,6 @@ local TeamCheckToggle = AimbotTab:CreateToggle({
 
 
 
--- Aimbot Smoothness Slider
 local Slider = AimbotTab:CreateSlider({
     Name = "Aimbot Smoothness",
     Range = {1, 10},
@@ -507,7 +494,6 @@ local Slider = AimbotTab:CreateSlider({
     end,
 })
 
--- Aimbot Function
 local function getClosestPlayer()
     local closestPlayer = nil
     local shortestDistance = math.huge
@@ -537,7 +523,6 @@ local function getClosestPlayer()
     return closestPlayer
 end
 
--- Aimbot Update
 local AimbotConnection = RunService.RenderStepped:Connect(function()
     if AimbotEnabled then
         local closestPlayer = getClosestPlayer()
@@ -554,8 +539,6 @@ local AimbotConnection = RunService.RenderStepped:Connect(function()
     end
 end)
 
-
--- Scripts Tab için JSON verilerini çekme ve buton oluşturma
 local function createScriptButtons()
     local success, scriptData = pcall(function()
         return game:HttpGet("https://raw.githubusercontent.com/MoonDeveloping/MoonScripts/refs/heads/main/scripts.json")
@@ -590,10 +573,8 @@ local function createScriptButtons()
     end
 end
 
--- Script butonlarını oluştur
 createScriptButtons()
 
--- Destroy GUI Button
 local Button = SettingsTab:CreateButton({
     Name = "Destroy GUI",
     Callback = function()
@@ -602,7 +583,6 @@ local Button = SettingsTab:CreateButton({
 })
 
 
--- Inf Jump Key Bind
 local InfJumpKeybind = SettingsTab:CreateKeybind({
     Name = "Infinite Jump Keybind",
     CurrentKeybind = "J",
@@ -615,7 +595,6 @@ local InfJumpKeybind = SettingsTab:CreateKeybind({
  })
 
  
--- Noclip Key Bind
 local NoclipKeybind = SettingsTab:CreateKeybind({
     Name = "Noclip Keybind",
     CurrentKeybind = "N",
@@ -628,7 +607,6 @@ local NoclipKeybind = SettingsTab:CreateKeybind({
  })
 
   
--- Fly Key Bind
 local FlyKeybind = SettingsTab:CreateKeybind({
     Name = "Fly Keybind",
     CurrentKeybind = "F",
@@ -640,7 +618,6 @@ local FlyKeybind = SettingsTab:CreateKeybind({
     end,
  })
 
--- Teleport Keybinds
 local QTeleportKeybind = SettingsTab:CreateKeybind({
     Name = "Toggle Q Teleport",
     CurrentKeybind = "Z",
@@ -663,7 +640,6 @@ local CtrlTeleportKeybind = SettingsTab:CreateKeybind({
     end,
 })
 
--- Aimbot Key Bind
 local AimbotKeybind = SettingsTab:CreateKeybind({
     Name = "Toggle Aimbot",
     CurrentKeybind = "V",
@@ -675,7 +651,6 @@ local AimbotKeybind = SettingsTab:CreateKeybind({
     end,
 })
 
--- Team Check Key Bind
 local TeamCheckKeybind = SettingsTab:CreateKeybind({
     Name = "Toggle Team Check",
     CurrentKeybind = "B",
@@ -689,7 +664,6 @@ local TeamCheckKeybind = SettingsTab:CreateKeybind({
 
 local selectedPlayer = nil
 
--- Oyuncu listesi için fonksiyon
 local function updatePlayerList()
     local playerList = {}
     for _, player in ipairs(Players:GetPlayers()) do
@@ -701,7 +675,6 @@ local function updatePlayerList()
     return playerList
 end
 
--- Player Dropdown
 local PlayerDropdown = MainTab:CreateDropdown({
     Name = "Player List",
     Options = updatePlayerList(),
@@ -716,7 +689,6 @@ local PlayerDropdown = MainTab:CreateDropdown({
     end,
 })
 
--- Teleport Button
 local TeleportButton = MainTab:CreateButton({
     Name = "Teleport to Selected Player",
     Callback = function()
@@ -738,7 +710,6 @@ local TeleportButton = MainTab:CreateButton({
     end,
 })
 
--- Refresh Button
 local RefreshButton = MainTab:CreateButton({
     Name = "Refresh Player List",
     Callback = function()
@@ -747,7 +718,6 @@ local RefreshButton = MainTab:CreateButton({
     end,
 })
 
--- Player Events
 Players.PlayerAdded:Connect(function(player)
     PlayerDropdown:Refresh(updatePlayerList(), true)
 end)
@@ -759,7 +729,6 @@ Players.PlayerRemoving:Connect(function(player)
     PlayerDropdown:Refresh(updatePlayerList(), true)
 end)
 
--- Oyuncu Listesi Tuşu
 local PlayerListKeybind = SettingsTab:CreateKeybind({
     Name = "Teleport to Selected Player",
     CurrentKeybind = "P",
