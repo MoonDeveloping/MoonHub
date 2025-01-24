@@ -9,7 +9,7 @@ local Teams = game:GetService("Teams")
 
 local Window = Rayfield:CreateWindow({
     Name = "Moon Hub",
-    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    Icon = "moon", -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
     LoadingTitle = "Moon Hub", 
     LoadingSubtitle = "by MrCaniwes, ` Hamzz",
     Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
