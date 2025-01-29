@@ -44,7 +44,7 @@ local Window = Rayfield:CreateWindow({
 Rayfield:Notify({
             Title = "🌙 Moon Hub Loaded",
             Content = "Developed By MrCaniwes, `Hamzz",
-            Duration = 3,
+            Duration = 5,
             Image = "circle-check"
         })
 
