@@ -8,7 +8,7 @@ local TweenService = game:GetService("TweenService")
 local Teams = game:GetService("Teams")
 
 local Window = Rayfield:CreateWindow({
-    Name = "🌙 Moon Hub",
+    Name = "Moon Hub",
     Icon = "moon",
     LoadingTitle = "Moon Hub", 
     LoadingSubtitle = "by MrCaniwes, ` Hamzz",
@@ -40,6 +40,13 @@ local Window = Rayfield:CreateWindow({
        Key = {"Hello"}
     }
 })
+
+Rayfield:Notify({
+            Title = "🌙 Moon Hub Loaded",
+            Content = "Developed By MrCaniwes, `Hamzz",
+            Duration = 3,
+            Image = "circle-check"
+        })
 
 local MainTab = Window:CreateTab("Home 🏠")
 local EspTab = Window:CreateTab("ESP 👁️")
