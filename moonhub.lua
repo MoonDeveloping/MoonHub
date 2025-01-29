@@ -1,5 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
+local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/MoonDeveloping/MoonScripts/refs/heads/main/esp.lua'))()
 
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
