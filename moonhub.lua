@@ -58,7 +58,7 @@ local MainSection = EspTab:CreateSection("Main")
 local MainSection2 = MainTab:CreateSection("Main")
 local MainSection3 = AimbotTab:CreateSection("Main")
 local MainSection4 = SettingsTab:CreateSection("Main")
-
+local MainSection5 = ScriptsTab:CreateSection("Main")
 
 local InfiniteJumpEnabled = false
 local NoclipEnabled = false
