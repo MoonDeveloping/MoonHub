@@ -12,7 +12,7 @@ local Window = Rayfield:CreateWindow({
     Icon = "moon",
     LoadingTitle = "Moon Hub", 
     LoadingSubtitle = "by MrCaniwes, ` Hamzz",
-    Theme = "Amethyst", 
+    Theme = "Default", 
 
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false, 
@@ -197,12 +197,6 @@ QTeleportToggle = MainTab:CreateToggle({
     Flag = "QTeleport", 
     Callback = function(Value)
         QTeleportEnabled = Value
-        if Value and CtrlTeleportToggle then
-            CtrlTeleportEnabled = false
-            task.spawn(function()
-                CtrlTeleportToggle:Set(false)
-            end)
-        end
         Rayfield:Notify({
             Title = "Q Teleport",
             Content = Value and "Enabled" or "Disabled",
@@ -218,12 +212,6 @@ CtrlTeleportToggle = MainTab:CreateToggle({
     Flag = "CtrlTeleport", 
     Callback = function(Value)
         CtrlTeleportEnabled = Value
-        if Value and QTeleportToggle then
-            QTeleportEnabled = false
-            task.spawn(function()
-                QTeleportToggle:Set(false)
-            end)
-        end
         Rayfield:Notify({
             Title = "CTRL Teleport",
             Content = Value and "Enabled" or "Disabled",
