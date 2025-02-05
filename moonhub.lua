@@ -12,7 +12,7 @@ local Window = Rayfield:CreateWindow({
     Icon = "moon",
     LoadingTitle = "Moon Hub", 
     LoadingSubtitle = "by MrCaniwes, ` Hamzz",
-    Theme = "Default", 
+    Theme = "Amethyst", 
 
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false, 
